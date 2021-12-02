@@ -36,4 +36,10 @@ class Types::QueryType < Types::BaseObject
       user.sessions.create.key
     end
   end
+
+  field :current_user, Types::UserType, null: false, description: "The currently logged user"
+
+  def current_user
+    context[:current_user]
+  end
 end
