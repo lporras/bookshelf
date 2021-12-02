@@ -4,6 +4,7 @@ class Author < ApplicationRecord
   # def full_name
   #   ([first_name, last_name].compact).join(" ")
   # end
+  validates :last_name, presence: true
 
   def coordinates
     [rand(90), rand(90)]
