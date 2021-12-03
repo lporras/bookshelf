@@ -10,4 +10,8 @@ class Mutations::CreateAuthor < GraphQL::Schema::Mutation
   def resolve(author:)
     Author.create author.to_h
   end
+
+  def self.accessible?(context)
+    context[:current_user]&.is_superadmin?
+  end
 end
